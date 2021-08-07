@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController
 
 import java.sql.Connection
 import java.sql.DriverManager
-import java.sql.ResultSet
-import java.sql.Statement
 
 @SpringBootApplication
 class TestApplication
@@ -32,29 +30,5 @@ class IndexController(@Autowired environment: Environment){
     @GetMapping("/")
     fun getHelloString(): String{
         return "Hello Kotlin!"
-    }
-
-    /**
-     * 取得 Student 所有資料
-     */
-    @GetMapping("/students")
-    fun getStudentData(): ArrayList<MutableMap<String, Any>> {
-        // 建立 Statement 進行資料庫操作
-        val statement: Statement = connection.createStatement()
-
-        // 取得 Student 資料表所有資料
-        val record: ResultSet = statement.executeQuery("SELECT * FROM Student")
-
-        // 將 Student 資料取出並儲存在一個集合進行輸出
-        val result: ArrayList<MutableMap<String, Any>> = ArrayList()
-        while (record.next()) {
-            val item = mutableMapOf<String, Any>()
-            item["id"] = record.getInt("id")
-            item["name"] = record.getString("name")
-            item["email"] = record.getString("email")
-            result.add(item)
-        }
-
-        return result
     }
 }
