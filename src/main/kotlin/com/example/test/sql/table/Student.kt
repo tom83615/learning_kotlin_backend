@@ -7,7 +7,7 @@ import javax.persistence.*
 data class Student(
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    val id: Int = 0,
+    val id: Long = 0,
 
     @Column
     val name: String = "",
