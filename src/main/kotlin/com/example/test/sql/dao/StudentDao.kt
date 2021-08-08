@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 
 interface StudentDao: JpaRepository<Student, Long>, JpaSpecificationExecutor<Student>{
 
-    fun findByName(name: String): Student?
+    fun findByName(name: String): List<Student>
 }
