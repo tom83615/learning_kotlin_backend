@@ -2,7 +2,7 @@ package com.example.test.service.impl
 
 import com.example.test.service.StudentService
 import com.example.test.sql.dao.StudentDao
-import com.example.test.sql.table.Student
+import com.example.test.sql.entity.Student
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*

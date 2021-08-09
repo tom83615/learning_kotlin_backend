@@ -1,4 +1,4 @@
-package com.example.test.sql.table
+package com.example.test.sql.entity
 
 import javax.persistence.*
 

@@ -1,6 +1,6 @@
 package com.example.test.service
 
-import com.example.test.sql.table.Student
+import com.example.test.sql.entity.Student
 import java.util.*
 
 interface StudentService {

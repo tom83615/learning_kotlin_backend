@@ -1,6 +1,6 @@
 package com.example.test.controller
 
-import com.example.test.sql.table.Student
+import com.example.test.sql.entity.Student
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
