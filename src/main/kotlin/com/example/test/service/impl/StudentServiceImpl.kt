@@ -41,6 +41,17 @@ class StudentServiceImpl(@Autowired val studentDao: StudentDao) : StudentService
             return studentDao.save(this)
         }
 
-    override fun deleteStudent(student: Student): Unit = studentDao.delete(student)
+    override fun deleteStudent(id: Long): Boolean =
+        studentDao.findById(id)
+            .run {
+                this ?: false
+            }.run {
+                return try {
+                    studentDao.delete(this as Student)
+                    true
+                } catch (exception: Exception) {
+                    false
+                }
+            }
 
 }

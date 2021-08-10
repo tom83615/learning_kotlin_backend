@@ -38,5 +38,5 @@ interface StudentService {
     /**
      * 刪除學生資料
      */
-    fun deleteStudent(student: Student): Unit
+    fun deleteStudent(id: Long): Boolean
 }

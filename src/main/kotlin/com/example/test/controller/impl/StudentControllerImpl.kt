@@ -48,7 +48,7 @@ class StudentControllerImpl(@Autowired val studentService: StudentService) : Stu
                 this.get() ?: return ResponseEntity<Any>(null, HttpStatus.NOT_FOUND)
             }
             .run {
-                return ResponseEntity<Any>(studentService.deleteStudent(this), HttpStatus.NO_CONTENT)
+                return ResponseEntity<Any>(studentService.deleteStudent(id), HttpStatus.NO_CONTENT)
             }
 
 }
