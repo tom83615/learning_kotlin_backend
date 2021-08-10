@@ -38,17 +38,17 @@ class StudentControllerImpl(@Autowired val studentService: StudentService) : Stu
                 )
             }
             .run {
-                return ResponseEntity<Student?>(studentService.updateStudentEmail(this), HttpStatus.OK)
+                return ResponseEntity<Student?>(studentService.updateStudent(this), HttpStatus.OK)
             }
 
     override fun deleteStudent(id: Long): ResponseEntity<Any> =
         studentService
-            .findByStudentId(id)
+            .deleteStudent(id)
             .run {
-                this.get() ?: return ResponseEntity<Any>(null, HttpStatus.NOT_FOUND)
-            }
-            .run {
-                return ResponseEntity<Any>(studentService.deleteStudent(id), HttpStatus.NO_CONTENT)
+                if (!this) {
+                    return ResponseEntity<Any>(null, HttpStatus.BAD_REQUEST)
+                }
+                return ResponseEntity<Any>(null, HttpStatus.NO_CONTENT)
             }
 
 }

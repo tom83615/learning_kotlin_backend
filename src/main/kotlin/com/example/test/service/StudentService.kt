@@ -31,11 +31,6 @@ interface StudentService {
     fun updateStudent(student: Student): Student
 
     /**
-     * 更新學生信箱資料
-     */
-    fun updateStudentEmail(student: Student): Student
-
-    /**
      * 刪除學生資料
      */
     fun deleteStudent(id: Long): Boolean
