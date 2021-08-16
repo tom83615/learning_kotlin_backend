@@ -17,6 +17,13 @@ class StudentControllerImpl(@Autowired val studentService: StudentService) : Stu
 
     override fun addStudentData(student: Student): Student = studentService.addStudent(student)
 
+    override fun getStudentById(id: Int): ResponseEntity<Student?> =
+        studentService
+            .findByStudentId(id)
+            .run {
+                return ResponseEntity<Student?>(this, HttpStatus.OK)
+            }
+
     override fun getStudentByName(name: String): ResponseEntity<List<Student>> =
         studentService
             .findByStudentName(name)
@@ -24,24 +31,18 @@ class StudentControllerImpl(@Autowired val studentService: StudentService) : Stu
                 return ResponseEntity(it, HttpStatus.OK)
             }
 
-    override fun updateStudent(id: Long, student: Student): ResponseEntity<Student?> =
+    override fun updateStudent(id: Int, student: Student): ResponseEntity<Student?> =
         studentService
             .findByStudentId(id)
             .run {
-                this.get() ?: return ResponseEntity<Student?>(null, HttpStatus.NOT_FOUND)
+                this ?: return ResponseEntity<Student?>(null, HttpStatus.NOT_FOUND)
             }
             .run {
-                Student(
-                    id = id,
-                    name = student.name,
-                    email = student.email
-                )
-            }
-            .run {
-                return ResponseEntity<Student?>(studentService.updateStudent(this), HttpStatus.OK)
+                val newStudent = studentService.updateStudent(this)
+                return ResponseEntity<Student?>(newStudent, HttpStatus.OK)
             }
 
-    override fun deleteStudent(id: Long): ResponseEntity<Any> =
+    override fun deleteStudent(id: Int): ResponseEntity<Any> =
         studentService
             .deleteStudent(id)
             .run {

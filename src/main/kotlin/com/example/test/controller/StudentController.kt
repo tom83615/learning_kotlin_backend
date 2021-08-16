@@ -19,7 +19,13 @@ interface StudentController {
     fun addStudentData(@RequestBody student: Student) : Student
 
     /**
-     * 利用姓名查詢學生資料
+     * 利用 id 查詢學生資料
+     */
+    @PostMapping("/students/access")
+    fun getStudentById(@RequestParam id: Int) : ResponseEntity<Student?>
+
+    /**
+     * 利用 name 查詢學生資料
      */
     @PostMapping("/students/search")
     fun getStudentByName(@RequestParam name: String) : ResponseEntity<List<Student>>
@@ -28,11 +34,11 @@ interface StudentController {
      * 修改學生資料
      */
     @PutMapping("/students/{id}")
-    fun updateStudent(@PathVariable id: Long, @RequestBody student: Student) : ResponseEntity<Student?>
+    fun updateStudent(@PathVariable id: Int, @RequestBody student: Student) : ResponseEntity<Student?>
 
     /**
      * 刪除學生資料
      */
     @DeleteMapping("/students/{id}")
-    fun deleteStudent(@PathVariable id: Long): ResponseEntity<Any>
+    fun deleteStudent(@PathVariable id: Int): ResponseEntity<Any>
 }

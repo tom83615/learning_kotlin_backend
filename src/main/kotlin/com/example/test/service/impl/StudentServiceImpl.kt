@@ -19,9 +19,9 @@ class StudentServiceImpl(@Autowired val studentDao: StudentDao) : StudentService
             return studentDao.save(this)
         }
 
-    override fun findByStudentId(id: Long): Optional<Student> = studentDao.findById(id)
+    override fun findByStudentId(id: Int): Student? = studentDao.findById(id)
 
-    override fun findByStudentName(name: String): List<Student> = studentDao.findByName(name)
+    override fun findByStudentName(name: String): MutableList<Student> = studentDao.findByName(name)
 
     override fun updateStudent(student: Student): Student =
         Student(
@@ -32,10 +32,10 @@ class StudentServiceImpl(@Autowired val studentDao: StudentDao) : StudentService
             return studentDao.save(this)
         }
 
-    override fun deleteStudent(id: Long): Boolean =
+    override fun deleteStudent(id: Int): Boolean =
         studentDao.findById(id)
             .run {
-                this.get() ?: false
+                this ?: false
             }.run {
                 return try {
                     studentDao.delete(this as Student)

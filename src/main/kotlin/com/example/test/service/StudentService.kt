@@ -16,14 +16,14 @@ interface StudentService {
     fun addStudent(student: Student): Student
 
     /**
-     * 查詢符合姓名條件的學生資料
+     * 查詢符合 id 的學生資料
      */
-    fun findByStudentId(id: Long): Optional<Student>
+    fun findByStudentId(id: Int): Student?
 
     /**
-     * 查詢符合姓名條件的學生資料
+     * 查詢符合 name 的學生資料
      */
-    fun findByStudentName(name: String): List<Student>
+    fun findByStudentName(name: String): MutableList<Student>
 
     /**
      * 更新學生整個資料
@@ -33,5 +33,5 @@ interface StudentService {
     /**
      * 刪除學生資料
      */
-    fun deleteStudent(id: Long): Boolean
+    fun deleteStudent(id: Int): Boolean
 }
