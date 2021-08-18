@@ -38,16 +38,13 @@ class TestStudentService {
      */
     @Test
     fun shouldGetAllStudentWhenCallMethod() {
-        // Arrange 初始化測試資料與預期結果
         val expectedResult : MutableList<Student> = mutableListOf()
         expectedResult.add(Student(1, "Tester", "test@gmail.com"))
         expectedResult.add(Student(2, "Tom", "tom83615@gmail.com"))
         given(studentDao.findAll()).willReturn(expectedResult)
 
-        // Act 執行測試工作單元，取得實際測試結果
         val actual : MutableList<Student> = studentServiceImpl.findAllStudent()
 
-        // Assert 驗證結果是否符合預期結果
         assertEquals(expectedResult, actual)
     }
 
