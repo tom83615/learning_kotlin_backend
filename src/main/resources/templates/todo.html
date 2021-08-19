@@ -14,8 +14,8 @@
         <button type="submit" class="submit">加入</button>
     </form>
     <ul th:each="todo: ${todolist}">
-        <li th:class="${todo.status} == 1 ? 'checked': '' " th:onclick="updateTodoStatus([[${todo.id}]])">
-            <span th:text="${todo.task}"></span>
+        <li th:class="${todo.status} == 1 ? 'checked': '' ">
+            <span th:text="${todo.task}" th:onclick="updateTodoStatus([[${todo.id}]])"></span>
             <span class="close" th:onclick="deleteTodo([[${todo.id}]])">x</span>
         </li>
     </ul>
