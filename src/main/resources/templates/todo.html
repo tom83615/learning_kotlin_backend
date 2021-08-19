@@ -15,7 +15,7 @@
     </form>
     <ul th:each="todo: ${todolist}">
         <li th:class="${todo.status} == 1 ? 'checked': '' ">
-            <span th:text="${todo.task}" th:onclick="updateTodoStatus([[${todo.id}]])"></span>
+            <span class="txt" th:text="${todo.task}" th:onclick="updateTodoStatus([[${todo.id}]])"></span>
             <span class="close" th:onclick="deleteTodo([[${todo.id}]])">x</span>
         </li>
     </ul>
