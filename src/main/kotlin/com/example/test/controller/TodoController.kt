@@ -1,6 +1,7 @@
 package com.example.test.controller
 
 import com.example.test.sql.entity.Todo
+import org.springframework.http.ResponseEntity
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 
@@ -26,7 +27,7 @@ interface TodoController {
      */
     @PutMapping("/todos/{id}")
     @ResponseBody
-    fun updateTodoStatus(@PathVariable id: String)
+    fun updateTodoStatus(@PathVariable id: String): ResponseEntity<Any>
 
     /**
      * (DELETE:/todos/{id})
@@ -34,5 +35,5 @@ interface TodoController {
      */
     @DeleteMapping("/todos/{id}")
     @ResponseBody
-    fun deleteTodo(@PathVariable id: String)
+    fun deleteTodo(@PathVariable id: String): ResponseEntity<Any>
 }

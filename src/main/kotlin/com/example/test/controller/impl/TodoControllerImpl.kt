@@ -5,6 +5,8 @@ import com.example.test.controller.TodoController
 import com.example.test.service.TodoService
 import com.example.test.sql.entity.Todo
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 
@@ -22,12 +24,26 @@ class TodoControllerImpl(@Autowired val todoService: TodoService): TodoControlle
         return "redirect:/todos"
     }
 
-    override fun updateTodoStatus(id: String) {
-        todoService.updateTodoStatus(id)
+    override fun updateTodoStatus(id: String): ResponseEntity<Any>{
+        todoService
+            .updateTodoStatus(id)
+            .run {
+                if (!this) {
+                    return ResponseEntity<Any>(null, HttpStatus.BAD_REQUEST)
+                }
+                return ResponseEntity<Any>(null, HttpStatus.OK)
+            }
     }
 
-    override fun deleteTodo(id: String) {
-        todoService.deleteTodo(id)
+    override fun deleteTodo(id: String): ResponseEntity<Any> {
+        todoService
+            .deleteTodo(id)
+            .run {
+                if (!this) {
+                    return ResponseEntity<Any>(null, HttpStatus.BAD_REQUEST)
+                }
+                return ResponseEntity<Any>(null, HttpStatus.OK)
+            }
     }
 
 }
