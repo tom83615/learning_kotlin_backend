@@ -29,7 +29,7 @@ class TodoControllerImpl(@Autowired val todoService: TodoService): TodoControlle
             .updateTodoStatus(id)
             .run {
                 if (!this) {
-                    return ResponseEntity<Any>(null, HttpStatus.BAD_REQUEST)
+                    return ResponseEntity<Any>(null, HttpStatus.NOT_FOUND)
                 }
                 return ResponseEntity<Any>(null, HttpStatus.OK)
             }
@@ -40,7 +40,7 @@ class TodoControllerImpl(@Autowired val todoService: TodoService): TodoControlle
             .deleteTodo(id)
             .run {
                 if (!this) {
-                    return ResponseEntity<Any>(null, HttpStatus.BAD_REQUEST)
+                    return ResponseEntity<Any>(null, HttpStatus.NOT_FOUND)
                 }
                 return ResponseEntity<Any>(null, HttpStatus.OK)
             }
