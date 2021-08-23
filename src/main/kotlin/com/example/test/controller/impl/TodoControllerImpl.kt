@@ -1,6 +1,5 @@
 package com.example.test.controller.impl
 
-import com.example.test.IndexController
 import com.example.test.controller.TodoController
 import com.example.test.service.TodoService
 import com.example.test.sql.entity.Todo
