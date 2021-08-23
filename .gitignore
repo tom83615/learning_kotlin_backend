@@ -36,7 +36,7 @@ out/
 /.nb-gradle/
 
 ### Package Files ###
-*.jar
+src/*.jar
 *.war
 *.nar
 *.ear
