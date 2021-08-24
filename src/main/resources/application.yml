@@ -2,9 +2,9 @@ spring:
     jpa:
         hibernate:
             ddl-auto: update        # 設定update值，表示只有第一次載入時需要自動建立資料表，其餘載入則是更新資料表結構
-            database-platform: H2   # 設定 JPA database 為 H2 資料庫
-            show-sql: true          # 顯示 JPA 運行的SQL語法
-            generate-ddl: false
+        database-platform: H2   # 設定 JPA database 為 H2 資料庫
+        show-sql: true          # 顯示 JPA 運行的SQL語法
+        generate-ddl: false
     h2:
         console:
             enabled: true
