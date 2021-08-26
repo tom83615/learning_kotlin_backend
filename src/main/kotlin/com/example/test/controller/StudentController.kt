@@ -5,6 +5,7 @@ import com.example.test.sql.entity.Student
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
+@RequestMapping("/api")
 interface StudentController {
     /**
      * (GET:/students)

@@ -2,7 +2,6 @@ package com.example.test.service
 
 import com.example.test.service.impl.TodoServiceImpl
 import com.example.test.sql.dao.TodoDao
-import com.example.test.sql.entity.Student
 import com.example.test.sql.entity.Todo
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
