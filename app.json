@@ -1,0 +1,7 @@
+{
+  "name": "Learning Kotlin Backend",
+  "description": "Learning test for kotlin spring boost backend.",
+  "repository": "https://github.com/tom83615/learning_kotlin_backend",
+  "logo": "https://spring.io/images/spring-logo.svg",
+  "keywords": ["Kotlin", "Spring"]
+}
